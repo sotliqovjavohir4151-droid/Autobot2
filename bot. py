@@ -4,7 +4,7 @@ import asyncio
 api_id = 39671684
 api_hash = "442196ac66c2e4100b61a31a0dff4eab"
 
-client = TelegramClient("session", api_id, api_hash)
+client = TelegramClient("session2", api_id, api_hash)
 
 groups = [
     "https://t.me/Xorazmtelefon_bozori_N1",

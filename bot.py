@@ -41,20 +41,28 @@ Eng baland va ishonchli kanal.
 Isbotlar profilda
 """
 
+bad_groups = []
+
 async def main():
     await client.start()
-    print("Bot ishga tushdi...")
+    print("Bot ishga tushdi")
 
     while True:
         for g in groups:
+            if g in bad_groups:
+                continue
+
             try:
                 await client.send_message(g, message)
                 print("Yuborildi:", g)
-                await asyncio.sleep(12)
+                await asyncio.sleep(5)
+
             except Exception as e:
-                print("Yuborilmadi:", g, e)
+                print("Yuborilmadi:", g)
+                print("Sabab:", e)
+                bad_groups.append(g)
 
         print("10 minut kutyapti...")
-        await asyncio.sleep(600)
+        await asyncio.sleep(450)
 
 asyncio.run(main())

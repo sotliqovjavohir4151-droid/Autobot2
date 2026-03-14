@@ -1,0 +1,57 @@
+from telethon import TelegramClient
+import asyncio
+
+api_id = 39671684
+api_hash = "442196ac66c2e4100b61a31a0dff4eab"
+
+client = TelegramClient("session", api_id, api_hash)
+
+groups = [
+    "https://t.me/Xorazmtelefon_bozori_N1",
+    "https://t.me/buxoro_telefon_bozori_bukhara",
+    "https://t.me/Andijon_Fargona_Namangan7",
+    "https://t.me/BUXORO_TELEFON_BOZORI_3",
+    "https://t.me/Qarshi_telefon_bozori",
+    "https://t.me/telfon_bozori_qarshi",
+    "https://t.me/Qarshi_Telefon_Bozori1",
+    "https://t.me/Qarshi_Telefon_bozor_Qashqadaryo",
+    "https://t.me/qarshi_telefon_qashqadaryo_bozor",
+    "https://t.me/gulobod_navoi_chat",
+    "https://t.me/Qarshi_telefon_bozorin1",
+    "https://t.me/fargona_margilon_telefon_bozorN1",
+    "https://t.me/Guruppalar_qiziqarli",
+    "https://t.me/Tanishuv_Dostlarr_Sevishganlar",
+    "https://t.me/mehribonlariiiim_0277",
+    "https://t.me/notkrug_chat",
+    "https://t.me/xorazm_telefon_bozor_group",
+    "https://t.me/dil_tabriklari",
+    "https://t.me/Navoiy_telefonn_bozor"
+]
+
+message = """
+• Bizga Kuniga 10 Tadan 1000 Tagacha Ovoz Yeg'a Oladiganlar Kerak
+
+• Ovozlarni Maximal Darajada Qimmat Olishga Harakat Qilamiz
+
+• Bizning Jamoaga Qo'shiling
+
+Narxlar kundan kunga ko'tarilib boradi.
+Eng baland va ishonchli kanal.
+
+Isbotlar profilda
+"""
+
+async def main():
+    while True:
+        for g in groups:
+            try:
+                await client.send_message(g, message)
+                print("Yuborildi:", g)
+                await asyncio.sleep(5)   # har guruh orasida 5 sekund
+            except Exception as e:
+                print("Yuborilmadi:", g, e)
+
+        await asyncio.sleep(500)  # 10 minutdan keyin yana aylana
+
+with client:
+    client.loop.run_until_complete(main())
